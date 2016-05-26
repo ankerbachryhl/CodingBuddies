@@ -1,1 +1,2 @@
-#Coding Buddies Project
+# CodingBuddies
+The platform CodingBuddies!
