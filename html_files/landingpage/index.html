@@ -67,7 +67,6 @@ body {background-color:lightgrey;}
 }
 
 #image-third-section{
-	margin-left: 90px;
 	margin-top: 50px;
 }
 
@@ -93,7 +92,21 @@ a:active{
 	text-decoration: none;
 }
 
+#signuplink{
+  color: #939393;
+  outline: none;
+}
 
+#signuplink:hover{
+  color: black;
+  outline: none;
+}
+
+@media (max-width: 998px) and (min-width: 767px) {
+  #thirdObject{
+    margin-left: 25%;
+  }
+}
 
 </style>
 
@@ -105,7 +118,7 @@ a:active{
 
 	<div class="container">
 		<!-- Logo -->
-		<a class="navbar-brand navbar-left" href="#">
+		<a class="navbar-brand navbar-left" href="../landingpage/index.html">
        		<img alt="CodingBuddies" src="" class="">
      	</a>
 
@@ -116,9 +129,9 @@ a:active{
 
      	<p class="navbar-text"><a href="#" class="navbar-link ">Why should I use CB?</a></p>
 
-     	<p class="navbar-text"><a href="#" class="navbar-link ">Contribute to CB</a></p>
+     	<p class="navbar-text"><a href="https://github.com/ankerbachryhl/CodingBuddies" class="navbar-link ">Contribute to CB</a></p>
 
-     	<button type="button" class="btn btn-default navbar-btn signin">Sign in</button>
+     	<button type="button" class="btn btn-default navbar-btn signin"><a id="signuplink" href="../signuppage/index.html">Sign in</a></button>
 
 
 	</div>
@@ -145,7 +158,7 @@ a:active{
             <div class="carousel-caption">
               <h1>Start using CodeBuddies.</h1>
               <p>Code Buddies is the platform that you was searching for.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="../signuppage/index.html" role="button">Sign up now</a></p>
             </div>
           </div>
         </div>
@@ -165,7 +178,7 @@ a:active{
             <div class="carousel-caption">
               <h1>Help us imporoving.</h1>
               <p>Code Buddies is new and we would like a hand from you, contribute here.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Contribute to CodeBuddies</a></p>
+              <p><a class="btn btn-lg btn-primary" href="https://github.com/ankerbachryhl/CodingBuddies" role="button">Contribute to CodeBuddies</a></p>
             </div>
           </div>
         </div>
@@ -221,7 +234,7 @@ a:active{
 		</div>
 
 
-		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" id="thirdObject">
 			<div class="thumbnail">
 				<img src="../../assets/images/landingpage-signup/connect.png" height="120" width="250">
 				<div class="caption">
@@ -244,7 +257,7 @@ a:active{
 
 	<div class="container">
 		<h2 id="title-third-section" class="text-projects">Some project born on CodeBuddies</h2>
-		<img src="../../assets/images/landingpage-signup/imageusers.png" id="image-third-section">
+		<img src="../../assets/images/landingpage-signup/imageusers.png" id="image-third-section" class="img-responsive">
 	</div>
 
 </div>
