@@ -1,0 +1,14 @@
+.user-body {
+  background-color: #333;
+  width: 400px;
+  height: 200px; }
+
+.profile-pic {
+  margin-top: 10px; }
+
+.profile-name {
+  color: #fff;
+  margin-top: 5px; }
+
+.profile-gender {
+  color: #fff; }

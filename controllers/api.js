@@ -6,6 +6,7 @@ const cheerio = require('cheerio');
 const graph = require('fbgraph');
 const LastFmNode = require('lastfm').LastFmNode;
 const Github = require('github-api');
+var User = require('../models/User.js');
 
 /**
  * GET /api
@@ -25,7 +26,7 @@ exports.getApi = (req, res) => {
 exports.getGithub = (req, res, next) => {
   const token = req.user.tokens.find(token => token.kind === 'github');
   const github = new Github({ token: token.accessToken });
-  const repo = github.getRepo('sahat', 'satellizer');
+  const repo = github.getRepo('ankerbachryhl', 'codingbuddies');
   repo.getDetails((err, repo) => {
     if (err) { return next(err); }
     res.render('api/github', {

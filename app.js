@@ -30,6 +30,7 @@ dotenv.load({ path: '.env.example' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
+const allusersController = require('./controllers/allusers')
 
 /**
  * API keys and Passport configuration.
@@ -39,7 +40,9 @@ const passportConfig = require('./config/passport');
 /**
  * Create Express server.
  */
-const app = express();
+ var app = express();
+ var server = require('http').Server(app);
+ var io = require('socket.io')(server);
 
 /**
  * Connect to MongoDB.
@@ -49,6 +52,7 @@ mongoose.connection.on('error', () => {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
 });
+
 
 /**
  * Express configuration.
@@ -117,12 +121,13 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.get('/allusers/users',  passportConfig.isAuthenticated, allusersController.getUsers);
 
 /**
  * API examples routes.
  */
 app.get('/api', apiController.getApi);
-app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub);
+app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub, allusersController.getUsers);
 app.get('/auth/github', passport.authenticate('github'));
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
@@ -136,8 +141,18 @@ app.use(errorHandler());
 /**
  * Start Express server.
  */
-app.listen(app.get('port'), () => {
+server.listen(app.get('port'), () => {
   console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
 
 module.exports = app;
+
+io.on('connection', (socket) => {
+  socket.emit('greet', { hello: 'Hey there browser!' });
+  socket.on('respond', (data) => {
+    console.log(data);
+  });
+  socket.on('disconnect', () => {
+    console.log('Socket disconnected');
+  });
+});

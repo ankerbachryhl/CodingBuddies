@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    title CodingBuddies
+    link(rel="stylesheet", href="assets/css/main.css")
+  body
+    
+    
+    header
+        
+      .navigation
+      
+        .grid
+          
+          .logo.row.row--2-of-16
+            .icon
+        
+          .home.row.row--2-of-16
+            .icon.home-icon
+          
+          .chat.row.row--2-of-16
+            .icon.chat-icon
+        
+          .profile.row.row--2-of-16
+            .icon.profile-icon
+            
+          .search.row.row--4-of-16
+            input(type="text" id="search-field" name="searc-users" placeholder="Search users & groups" class="search-field")
+                    
+          .settings.row.row--2-of-16
+            .icon.settings-icon
+          
+          .share.row.row--2-of-16
+            .icon.share-icon
+        
+        
+    .wrapper
+      
+      .recommended
+      
+        //- include ./chat.jade  
+        include ./recommended.jade

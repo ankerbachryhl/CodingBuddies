@@ -1,0 +1,17 @@
+//Importing code in 1-base
+
+@import "1-base/toastgrid.scss";
+@import "1-base/vars.scss";
+@import "1-base/animate.css";
+@import "1-base/fonts.scss";
+
+//Sections
+
+@import "3-sections/header.sass";
+@import "3-sections/chat.sass";
+@import "3-sections/recommended.sass";
+
+
+//Layouts
+
+@import "4-layouts/home-layout.sass";
